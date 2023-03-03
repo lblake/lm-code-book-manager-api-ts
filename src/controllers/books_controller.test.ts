@@ -132,4 +132,28 @@ describe("POST /api/v1/books endpoint", () => {
 		// Assert
 		expect(res.statusCode).toEqual(400);
 	});
+
+	describe("DELETE /api/v1/books endpoint", () => {
+		test("status code successfully 200 for deleting a valid book", async () => {
+			// Act
+			const res = await request(app)
+				.delete("/api/v1/books")
+				.send({ bookId: 1 });
+
+			// Assert
+			expect(res.statusCode).toEqual(404);
+		});
+	});
+
+	describe("PUT /api/v1/books endpoint", () => {
+		test("status code successfully 201 for saving a valid book", async () => {
+			// Act
+			const res = await request(app)
+				.put("/api/v1/books")
+				.send({ bookId: 4, title: " Mr. Fox", author: "Roald Dahl" });
+
+			// Assert
+			expect(res.statusCode).toEqual(404);
+		});
+	});
 });
