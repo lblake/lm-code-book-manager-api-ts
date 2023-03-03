@@ -6,5 +6,8 @@ router.get("/books", booksController.getBooks);
 router.get("/books/:bookId", booksController.getBook);
 router.post("/books", booksController.saveBook);
 
+router.delete("/books/:bookId", booksController.deleteBook);
+router.post("/books/:bookId", booksController.addBook)
+
 // User Story 4 - Update Book By Id Solution
 router.put("/books/:bookId", booksController.updateBook);
