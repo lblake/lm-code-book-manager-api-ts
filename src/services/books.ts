@@ -1,3 +1,4 @@
+import { deleteBook } from './../controllers/books_controller';
 import { Book } from "../models/book";
 
 export const getBooks = async () => {
@@ -17,6 +18,19 @@ export const saveBook = async (book: Book) => {
 // User Story 4 - Update Book By Id Solution
 export const updateBook = async (bookId: number, book: Book) => {
 	return Book.update(book, {
+		where: {
+			bookId,
+		},
+	});
+};
+
+export const addBook = async (book: Book) => {
+	return Book.create<Book>(book);
+};
+
+
+export const removeBook = async (bookId: number, book: Book) => {
+	return Book(book, {
 		where: {
 			bookId,
 		},
