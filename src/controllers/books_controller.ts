@@ -37,11 +37,15 @@ export const updateBook = async (req: Request, res: Response) => {
 };
 
 export const deleteBook = async (req: Request, res: Response) => {
-	const bookDeleteData = req.body;
-	const bookId = Number.parseInt(req.params.bookId);
+	try {
+		const bookId = Number.parseInt(req.params.bookId);
 
-	const book = await bookService.removeBook(bookId, bookDeleteData);
-	res.status(200).json(book);
+		const book = await bookService.deleteBook(bookId);
+
+		res.status(204).json(book);
+	} catch (error) {
+		res.status(400).json("Not found");
+	}
 };
 
 export const addBook = async (req: Request, res: Response) => {

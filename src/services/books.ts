@@ -1,4 +1,4 @@
-import { deleteBook } from './../controllers/books_controller';
+// import { deleteBook } from './../controllers/books_controller';
 import { Book } from "../models/book";
 
 export const getBooks = async () => {
@@ -28,9 +28,8 @@ export const addBook = async (book: Book) => {
 	return Book.create<Book>(book);
 };
 
-
-export const removeBook = async (bookId: number, book: Book) => {
-	return Book(book, {
+export const deleteBook = async (bookId: number) => {
+	return Book.destroy({
 		where: {
 			bookId,
 		},
