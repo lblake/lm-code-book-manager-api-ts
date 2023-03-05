@@ -45,6 +45,7 @@ export const deleteBook = async (req: Request, res: Response) => {
 		res.status(204).json(book);
 	} catch (error) {
 		res.status(400).json("Not found");
+		
 	}
 };
 
@@ -52,7 +53,7 @@ export const addBook = async (req: Request, res: Response) => {
 	const bookToAdd = req.body;
 	try {
 		const book = await bookService.addBook(bookToAdd);
-		res.status(200).json(book);
+		res.status(201).json(book);
 	} catch (error) {
 		res.status(400).json({ message: (error as Error).message });
 	}

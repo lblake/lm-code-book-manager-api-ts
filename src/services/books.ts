@@ -24,7 +24,7 @@ export const updateBook = async (bookId: number, book: Book) => {
 	});
 };
 
-export const addBook = async (book: Book) => {
+export const addBook = async (book:Book) => {
 	return Book.create<Book>(book);
 };
 

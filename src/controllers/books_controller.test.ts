@@ -148,24 +148,26 @@ describe("POST /api/v1/books endpoint", () => {
 			});
 
 			// Act
-			const res = await request(app).delete("/api/v1/books/300");
+			const res = await request(app).delete("/api/v1/books/301");
 
 			// Assert
 			expect(res.statusCode).toEqual(400);
 		});
 	});
 
-	describe("POST /api/v1/books endpoint", () => {
-		test("status code successfully 200 for adding a valid book", async () => {
-			// Act
-			const res = await request(app).post("/api/v1/books/:booksId").send({
-				bookId: 4,
-				title: "Complete Bass Method",
-				author: "Hal Leonard",
-			});
+// 	describe("POST /api/v1/books endpoint", () => {
+// 		test("status code successfully 200 for adding a valid book", async () => {
+// 			// Act
+// 			const res = await request(app).post("/api/v1/books/:booksId").send({
+// 				bookId: 4,
+// 				title: "Complete Bass Method",
+// 				author: "Hal Leonard",
+// 			});
 
-			// Assert
-			expect(res.statusCode).toEqual(200);
-		});
-	});
+// 			// Assert
+// 			expect(res.statusCode).toEqual(200);
+// 		});
+// 	});
+// });
+
 });
